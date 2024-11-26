@@ -8,7 +8,8 @@ Este proyecto es un reproductor de videos de YouTube construido con **ReactJS**.
 [video youtube](https://youtu.be/eQlewUEDmng)
 ## Preview del proyecto
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eQlewUEDmng?si=iE9KdtorVBj17yOa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+![Texto alternativo](./capture/screen-capture.gif)
+
 
 ## Características
 
