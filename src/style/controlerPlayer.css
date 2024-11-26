@@ -1,0 +1,123 @@
+.controler-player-container {
+    width: 100%;
+    border-radius: 0 0 20px 0;
+    position: absolute;
+    bottom: -1%;
+    left: 0;
+    background-color: rgb(235, 11, 223);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.bar-progress-youtube-container {
+    width: 100%;
+    height: 6px;
+}
+
+.background-progress-bar {
+    background-color: rgb(213, 218, 218);
+}
+
+.progress-bar {
+    background-color: crimson;
+}
+
+.progress-bar:hover {
+    background-color: rgb(243, 39, 80);
+}
+
+.controler-player {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.btns-controler-primary {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: transparent;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+.fa-solid {
+    background-color: transparent;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.fa-solid:hover, 
+.btn:hover {
+    color: crimson;
+}
+.controler-player-container > .song-actually-container{
+    width: auto;
+    height: auto;
+}
+.song-actually-container > .list-item-container{
+    width: 340px;
+    height: 80px;
+    display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 0px;
+background-color: transparent;
+box-sizing: border-box;
+}
+.list-item-container > img{
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px;
+}
+.list-item-container > h3{
+    width: 60%;
+    height: 100%;
+    padding: 0px 5px;
+    font-size: 0.8rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+
+}
+.btns-controler-secundary {
+    width: 200px;
+    padding: 0;
+    background-color: transparent;
+    color: crimson;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+*/
+.play-song-container > .fa-solid{
+    width: 10%;
+    height: 10%;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+.btns-controler-secundary > button{
+    background-color: transparent;
+    border:none;
+}

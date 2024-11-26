@@ -1,0 +1,139 @@
+.background-song-container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(34, 33, 33);
+    border-radius: 0px 20px 20px 20px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+   overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .prueba1 {
+    width: 100%;
+    height: 150px;
+    padding: 10px 10px;
+    background-color: rgb(34, 33, 33);
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: solid white 2px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-search-container {
+    width: 400px;
+    height: auto;
+    padding: 0px 0px 0px 0px;
+    position: absolute;
+    top: 28%;
+    background-color: rgb(24, 24, 24);
+    box-sizing: border-box;
+    border-radius: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+  
+  .input-container {
+    width: 100%;
+    height: 40px;
+    padding: 0px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .input-container > i {
+    width: 10%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+  
+  .input-container > input {
+    width: 90%;
+    height: 80%;
+    padding-left: 10px;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .history-container {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(151, 149, 146);
+    color: aliceblue;
+  }
+  .prueba2{
+    width: 100%;
+  
+    height:auto;
+    padding:20px;
+    padding-bottom: 100px;
+    overflow-y: auto;
+    background-color: rgb(34, 33, 33);
+    
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(7, 100px);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 20px 10px;
+    z-index: 1;
+  }
+  .prueba2 > .item-result-search-container{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    background-color: black;
+    color: aliceblue;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+  }
+  .prueba2 > .item-result-search-container > img{
+    width: 40%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    background-color: transparent;
+    border-radius: 10px 0px 0px 10px;
+  }
+  .prueba2 > .item-result-search-container > h3{
+    width: 60%;
+    height: 100%;
+    margin: 0;
+    padding: 0 10px;
+    font-size: 0.9em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    overflow: hidden;
+    background-color: rgb(83, 82, 82);
+    border-radius: 0px 10px 10px 0px ;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .prueba2 > .item-result-search-container > h3:hover{
+    background-color: crimson;
+  }
