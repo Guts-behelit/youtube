@@ -1,0 +1,8 @@
+# Ignorar node_modules
+node_modules/
+
+# Otras configuraciones que puedas necesitar
+*.log
+*.env
+.DS_Store
+
