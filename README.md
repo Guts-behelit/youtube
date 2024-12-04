@@ -37,7 +37,7 @@ Sigue estos pasos para clonar el repositorio y configurar el proyecto localmente
 1. Clona el repositorio a tu máquina local:
 
    ```bash
-   git clone https://github.com/tu_usuario/reproductor-youtube-react.git
+   git clone https://github.com/Guts-behelit/reproductor-youtube-react.git
 2. Navega al directorio del proyecto:
    
    ```bash
