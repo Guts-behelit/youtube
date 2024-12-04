@@ -1,6 +1,5 @@
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import BarSettings from './components/BarSettings'
 import BackgroundSong from './components/BackgroundSong'
@@ -11,7 +10,7 @@ function App() {
 
   return (
     <>
-    <BarSettings/>
+  
     <BackgroundSong/>
     </>
   )
