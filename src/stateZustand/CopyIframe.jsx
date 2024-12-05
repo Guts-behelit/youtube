@@ -2,7 +2,7 @@ import { useRef ,useEffect} from "react";
 import { useStore } from "./zustandState";
 import { useContext } from "react";
 import { MusicContext } from "../context/MusicContext";
-import { ListItemYoutube } from "../components/Youtube";
+import { ListItemYoutube } from "../components/ListItemYoutube";
 
 export const CopyIframe = () => {
     const playerRef = useRef(null);

@@ -93,49 +93,7 @@
     gap: 20px 10px;
     z-index: 0;
   }
-  .prueba2 > .item-result-search-container{
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    background-color: black;
-    color: aliceblue;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  
-  }
-  .prueba2 > .item-result-search-container > img{
-    width: 40%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    object-fit: cover;
-    background-color: transparent;
-    border-radius: 10px 0px 0px 10px;
-  }
-  .prueba2 > .item-result-search-container > h3{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0 10px;
-    font-size: 0.9em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 700;
-    text-align: center;
-    overflow: hidden;
-    background-color: rgb(83, 82, 82);
-    border-radius: 0px 10px 10px 0px ;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .prueba2 > .item-result-search-container > h3:hover{
-    background-color: crimson;
-  }
 
   @media (max-width:425px) {
     .background-song-container {
@@ -232,48 +190,9 @@
       align-items: center;
       justify-content: center;
       justify-items: center;
-      gap: 25px;
+      gap: 10px;
       z-index: 1;
       box-sizing: border-box;
-      background-color: aqua;
-    }
-    .prueba2 > .item-result-search-container{
-      width: 100%;
-      height: 100%;
-      padding: 0px ;
-      background-color: black;
-      color: aliceblue;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      border: solid red 1px;
-    
-    }
-    .prueba2 > .item-result-search-container >.image-search-container{
-      width: 100%;
-      height:180px;
-      margin: 0;
-      padding: 0;
-      object-fit: contain;
-      background-color: transparent;
-    }
-    .prueba2 > .item-result-search-container > .title-search-container{
-      width: 100%;
-      height:74px;
-      margin: 0;
-      padding: 0.5re8 10px;
-      font-size: 0.9em;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      font-weight: 700;
-      text-align: center;
-      overflow: hidden;
-      background-color: rgb(36, 12, 252);
-      box-sizing: border-box;
-    }
-  
-    .prueba2 > .item-result-search-container > h3:hover{
-      background-color: crimson;
+      background-color: rgb(20, 20, 20);
     }
   }

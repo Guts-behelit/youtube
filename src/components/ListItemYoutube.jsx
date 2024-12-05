@@ -1,8 +1,7 @@
 import {  useEffect, useState } from 'react';
-
-import '../style/youtube.css'
+import '../style/listItemYoutube.css'
 import { useStore } from '../stateZustand/zustandState';
-
+import { ItemYoutube } from './ItemYoutube';
 
 export function ListItemYoutube() {
   const [listVideoRecomended, setListVideoRecomeded] = useState([]);
@@ -101,13 +100,6 @@ console.error(error)
 
   return (
     <div className='list-music-youtube-iframe'>
-      {/*
-        itemRecomended &&
-        itemRecomended.map((e, index) => (
-         <ItemYoutube key={index + '$%&'}
-         el={e} index={index} arrayList={itemRecomended} allow={true}/>
-        ))*/
-      }
       {listVideoRecomended &&
         listVideoRecomended.filter((videoRecomended) => (videoRecomended.type == 'video')).map((videoRecomended) => (
           <ItemYoutube key={videoRecomended.videoId + '$%&#'}
@@ -118,23 +110,3 @@ console.error(error)
   )
 }
 
-export function ItemYoutube({ videoItem }) {
-  const { updateIdActualVideoIframe,updateObjectVideoActually } = useStore((state) => state)
-  const { videoId, thumbnail: [{ url: smallThumbnail }], title, lengthText: timeVideo } = videoItem
-
-  const handleMusic = () => {
-    updateIdActualVideoIframe(videoId)
-    updateObjectVideoActually(videoItem)
-}
-
-  return (
-    <div className='list-item-container'
-      onClick={handleMusic} >
-      <img src={smallThumbnail} />
-      <div className={`${'title-container'}`} >
-        <h3 >{title}</h3>
-      </div>
-
-    </div>
-  )
-}
