@@ -3,14 +3,13 @@ import { useRef, useEffect, useState } from "react";
 import ControlerPlayer from "./ControlerPlayer"
 import PlaySong from "./PlaySong"
 import { useStore } from "../stateZustand/zustandState";
-
+import { ItemResultSearchYoutube } from "./ItemResultSearchYoutube";
 export default function BackgroundSong() {
   const { listObjectVideoSearch } = useStore((state)=> state)
 
   return (
     <section className="background-song-container">
       <div className="prueba1">
-      <i className="fa-solid fa-biohazard"></i>
         <InputSearchYoutube />
       </div>
       <div className="prueba2">
@@ -119,29 +118,3 @@ function InputSearchYoutube() {
   )
 }
 
- function ItemResultSearchYoutube({ thumbnail, title, idItem  }) {
- 
-  const {updateIdActualVideoIframe,updateObjectVideoActually} = useStore((state)=> state)
-  
-  const handleMusic = () => {
-    const ObjectActually = {videoId:idItem,
-      thumbnail:[{url:thumbnail},{url:""}],
-      title:title,
-      lengthText:'5.56'}
-
-    updateIdActualVideoIframe(idItem);
-    updateObjectVideoActually(ObjectActually);
-   
-
-  }
-
-  return (
-    <div className={'item-result-search-container'}
-      onClick={handleMusic}
-    >
-      <img src={thumbnail} alt={`imagen de ${thumbnail}`} />
-      <h3>{title}</h3>
-
-    </div>
-  )
-}
