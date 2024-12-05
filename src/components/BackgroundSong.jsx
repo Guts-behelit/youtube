@@ -1,11 +1,11 @@
 import "../style/backgroundSong.css"
-import { useRef, useEffect, useState, useContext } from "react";
+import { useRef, useEffect, useState } from "react";
 import ControlerPlayer from "./ControlerPlayer"
 import PlaySong from "./PlaySong"
-import { MusicContext } from "../context/MusicContext";
+import { useStore } from "../stateZustand/zustandState";
 
 export default function BackgroundSong() {
-  const { resultSearchYoutube } = useContext(MusicContext)
+  const { listObjectVideoSearch } = useStore((state)=> state)
 
   return (
     <section className="background-song-container">
@@ -14,9 +14,9 @@ export default function BackgroundSong() {
         <InputSearchYoutube />
       </div>
       <div className="prueba2">
-        {resultSearchYoutube.map((e, index) => (
-          <ItemResultSearchYoutube thumbnail={e.thumbnail} key={index} title={e.title} indexItem={index} classItem={'item-result-search-container'} />
-        ))}
+        {listObjectVideoSearch[0]?listObjectVideoSearch.map((e) => (
+          <ItemResultSearchYoutube thumbnail={e.thumbnail} key={e.id} title={e.title} idItem={e.videoId} />
+        )):""}
       </div>
       <PlaySong />
       <ControlerPlayer />
@@ -27,7 +27,7 @@ export default function BackgroundSong() {
 function InputSearchYoutube() {
   const [isHistoryVisible, setIsHistoryVisible] = useState(false);
   const [inputText, setInputText] = useState('');
-  const { setResultSearchYoutube } = useContext(MusicContext);
+  const {updateListObjectVideoSearch} = useStore((state)=> state)
 
   const inputRef = useRef(null);
   const historyRef = useRef(null);
@@ -76,13 +76,8 @@ function InputSearchYoutube() {
             videoUrl
           })
           // Mostrar la información en la consola
-          console.log('Título:', title);
-          console.log('Descripción:', description);
-          console.log('Miniatura:', thumbnail);
-          console.log('URL del Video:', videoUrl);
-          console.log('---');
         });
-        setResultSearchYoutube(listFecthYoutube);
+        updateListObjectVideoSearch(listFecthYoutube);
       })
       .catch(error => {
         console.error('Error al obtener datos de YouTube API:', error);
@@ -124,23 +119,25 @@ function InputSearchYoutube() {
   )
 }
 
-export function ItemResultSearchYoutube({ thumbnail, title, indexItem ,classItem }) {
-  const {resultSearchYoutube,setUrlSongs,setIndexSong,setMusicActually} = useContext(MusicContext);
-  let indexItemYoutube = indexItem;
+export function ItemResultSearchYoutube({ thumbnail, title, idItem  }) {
+ 
+  const {updateIdActualVideoIframe,idActualVideoIframe} = useStore((state)=> state)
   
   const handleMusic = () => {
-    let idMusicYoutube= resultSearchYoutube.map((e)=>{
-     return  e.videoId
-    })
-    console.log(idMusicYoutube);
-    setUrlSongs(idMusicYoutube);
-    setIndexSong(indexItemYoutube);
-    setMusicActually({thumbnail,title,indexItem})
+    //let idMusicYoutube= listObjectVideoSearch.map((e)=>{
+     //return  e.videoId
+    //})
+    //console.log(idMusicYoutube);
+    //setUrlSongs(idMusicYoutube);
+    updateIdActualVideoIframe(idItem);
+    //setMusicActually({thumbnail,title,idItem})
+    console.log(idItem);
+    console.log(idActualVideoIframe)
 
   }
 
   return (
-    <div className={classItem}
+    <div className={'item-result-search-container'}
       onClick={handleMusic}
     >
       <img src={thumbnail} alt={`imagen de ${thumbnail}`} />

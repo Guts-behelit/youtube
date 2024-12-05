@@ -3,6 +3,7 @@ import "../style/playSong.css"
 
 import { MusicContext } from "../context/MusicContext";
 import YouTubePlayer from "./Youtube";
+import { CopyIframe } from "../stateZustand/CopyIframe";
 
 export default function PlaySong() {
   const { isMoved } = useContext(MusicContext)
@@ -17,7 +18,8 @@ export default function PlaySong() {
       }}
     >
 
-      <YouTubePlayer />
+      {/*<YouTubePlayer />*/}
+      <CopyIframe/>
     </div>
   )
 }

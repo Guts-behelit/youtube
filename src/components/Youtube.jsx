@@ -2,16 +2,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { MusicContext } from '../context/MusicContext';
 import { ItemResultSearchYoutube } from './BackgroundSong';
 import '../style/youtube.css'
+import { useStore } from '../stateZustand/zustandState';
 
-let idUrl = 'tCuYbAf6igo';
-let qualityImg = {
-  default: 'default.jpg',
-  mqdefault: 'mqdefault.jpg',
-  hqdeafult: 'hqdefault.jpg',
-  sddefault: 'sddefault.jpg',
-  maxresdefault: 'maxresdefault.jpg',
-};
-let urlTumbnail = `https://img.youtube.com/vi/${idUrl}/${qualityImg.sddefault}`;
 
 
 const YouTubePlayer = () => {
@@ -85,7 +77,7 @@ const YouTubePlayer = () => {
 
 
       {/* Aqui va el iframe de youtube */}
-     <ListItemYoutube/>
+      <ListItemYoutube />
     </div>
   );
 };
@@ -94,10 +86,9 @@ export default YouTubePlayer;
 
 
 
-function ListItemYoutube() {
-  const [itemRecomended, setItemRecomeded] = useState([]);
-  const {urlSongs,indexSong} = useContext(MusicContext);
- 
+export function ListItemYoutube() {
+  const [listVideoRecomended, setListVideoRecomeded] = useState([]);
+  const { idActualVideoIframe } = useStore((state) => state);
   /*
   useEffect(() => {
     /*
@@ -146,7 +137,7 @@ function ListItemYoutube() {
       
 try {
 
-	fetch(url, options)
+  fetch(url, options)
   .then((response)=>{
 return response;
   })
@@ -160,13 +151,13 @@ console.error(error)
 	
 	
 } catch (error) {
-	console.error(error);
+  console.error(error);
 }
   }, [])
 */
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://yt-api.p.rapidapi.com/related?id=${urlSongs[indexSong]}`;
+      const url = `https://yt-api.p.rapidapi.com/related?id=${idActualVideoIframe}`;
       const options = {
         method: 'GET',
         headers: {
@@ -174,82 +165,66 @@ console.error(error)
           'x-rapidapi-host': 'yt-api.p.rapidapi.com'
         }
       };
-  
+
       try {
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
-        setItemRecomeded(result.data)
+        setListVideoRecomeded(result.data)
       } catch (error) {
         console.error(error);
       }
     };
-  
+
     fetchData();
-  }, [urlSongs,indexSong]);
-  
- 
-  
+  }, [idActualVideoIframe]);
+
+
+
   return (
     <div className='list-music-youtube-iframe'>
-      {
+      {/*
         itemRecomended &&
         itemRecomended.map((e, index) => (
          <ItemYoutube key={index + '$%&'}
          el={e} index={index} arrayList={itemRecomended} allow={true}/>
-        ))
+        ))*/
       }
+      {listVideoRecomended &&
+        listVideoRecomended.filter((videoRecomended) => (videoRecomended.type == 'video')).map((videoRecomended) => (
+          <ItemYoutube key={videoRecomended.videoId + '$%&#'}
+            videoItem={videoRecomended} />
+        ))}
     </div>
 
   )
 }
 
- export function ItemYoutube({index,el,arrayList,allow}){
-  const {setUrlSongs,setIndexSong,setMusicActually} = useContext(MusicContext);
-  const [scrollingText,setScrollingText] = useState('')
-  const itemRef = useRef();
-  const h3Ref = useRef();
+export function ItemYoutube({ videoItem }) {
+  // const {setUrlSongs,setIndexSong,setMusicActually} = useContext(MusicContext);
+  const { updateIdActualVideoIframe,updateObjectVideoActually } = useStore((state) => state)
+  const { videoId, thumbnail: [{ url: smallThumbnail }], title, lengthText: timeVideo } = videoItem
 
-  useEffect(()=>{
-    if(itemRef.current.scrollWidth < h3Ref.current.scrollWidth){
-      setScrollingText('scrolling-text');
-    }else{
-      setScrollingText('');
-    }
-  },[])
-  let indexItemYoutube = index;
-  let listItem = [...arrayList]
   const handleMusic = () => {
-    let idMusicYoutube= listItem.map((e)=>{
-     return  e.videoId
-    })
-if(allow){
-  console.log('idmusic',idMusicYoutube);
-  setUrlSongs(idMusicYoutube);
-  setIndexSong(indexItemYoutube);
+    updateIdActualVideoIframe(videoId)
+    updateObjectVideoActually(videoItem)
+/*
+    if(allow){
+
+  
   setMusicActually({title:el.title,thumbnail:`https://img.youtube.com/vi/${el.videoId}/${qualityImg.sddefault}`,})
 
 }
+*/}
 
-
-  }
-  let qualityImg = {
-    default: 'default.jpg',
-    mqdefault: 'mqdefault.jpg',
-    hqdeafult: 'hqdefault.jpg',
-    sddefault: 'sddefault.jpg',
-    maxresdefault: 'maxresdefault.jpg',
-  };
-  return(
+  return (
     <div className='list-item-container'
-    
-    onClick={handleMusic}
-    >
-            <img src={`https://img.youtube.com/vi/${el.videoId}/${qualityImg.sddefault}`} alt={`imagen de https://img.youtube.com/vi/${el.videoId}/${qualityImg.sddefault}`} />
-            <div className={`${'title-container'}${scrollingText}`} ref={itemRef} >
-            <h3 ref={h3Ref}>{el.title}</h3>
-            </div>
-            
-          </div>
+      onClick={handleMusic} >
+      <img src={smallThumbnail} />
+      <div className={`${'title-container'}`} >
+        <h3 >{title}</h3>
+      </div>
+
+    </div>
   )
 }

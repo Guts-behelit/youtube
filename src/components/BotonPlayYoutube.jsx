@@ -1,18 +1,19 @@
-import { useContext } from "react"
-import { MusicContext } from "../context/MusicContext"
+//import { useContext } from "react"
+//import { MusicContext } from "../context/MusicContext"
 
 //import "../style/controlerPlayer.css"
 import '../style/botonPlay.css'
+import { useStore } from "../stateZustand/zustandState";
 
 export default function BotonPlayYoutube() {
-    const {isPlaying,player} = useContext(MusicContext);
+    const {isReproduction,referenceIframe} = useStore((state)=> state)
     const togglePlay = (e) => {
         e.stopPropagation();
-        if (player) {
-          if (isPlaying) {
-            player.pauseVideo();
+        if (referenceIframe) {
+          if (isReproduction) {
+            referenceIframe.pauseVideo();
           } else {
-            player.playVideo();
+            referenceIframe.playVideo();
           }
         }
       };
@@ -24,7 +25,7 @@ export default function BotonPlayYoutube() {
         onClick={togglePlay}
         
         >
-        {isPlaying ? 
+        {isReproduction ? 
         <i className="fa-solid fa-pause"></i>:
         <i className="fa-solid fa-play"></i>}
         </button>
