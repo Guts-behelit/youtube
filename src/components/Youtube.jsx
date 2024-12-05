@@ -208,14 +208,7 @@ export function ItemYoutube({ videoItem }) {
   const handleMusic = () => {
     updateIdActualVideoIframe(videoId)
     updateObjectVideoActually(videoItem)
-/*
-    if(allow){
-
-  
-  setMusicActually({title:el.title,thumbnail:`https://img.youtube.com/vi/${el.videoId}/${qualityImg.sddefault}`,})
-
 }
-*/}
 
   return (
     <div className='list-item-container'

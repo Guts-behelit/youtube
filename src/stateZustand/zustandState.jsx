@@ -11,7 +11,10 @@ export const useStore = create((set)=>({
     updateReferenceIframe:(referenceActually)=> set({referenceIframe:referenceActually}),
     isReproduction : false,
     updateIsReproduction:(newBoolean)=> set({isReproduction:newBoolean}),
-    objectVideoActually:{},
+    objectVideoActually:{videoId:'kBkqVyTQa1w',
+        thumbnail:[{url:"https://i.ytimg.com/vi/kBkqVyTQa1w/hqdefault.jpg"},{url:""}],
+        title:'zunztand',
+        lengthText:'5.56'},
     updateObjectVideoActually : (newObjectVideo)=> set({objectVideoActually:newObjectVideo})
 
 }));
