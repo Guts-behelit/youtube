@@ -32,6 +32,9 @@
     width: 10%;
     height: 10%;
     color: white;
-    background-color: transparent;
+    background-color: blue;
     border: none;
+}
+.btn-show-music-player-container{
+    background-color: blue;
 }

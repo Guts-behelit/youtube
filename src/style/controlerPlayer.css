@@ -30,7 +30,7 @@
 
 .controler-player {
     width: 100%;
-    padding: 10px;
+    padding: 0.5rem;
     background-color: rgb(20, 20, 20);
     display: flex;
     justify-content: space-between;
@@ -57,31 +57,35 @@
     color: aliceblue;
 }
 
-.fa-solid:hover, 
+.fa-solid:hover,
 .btn:hover {
     color: crimson;
 }
-.controler-player-container > .song-actually-container{
+
+.controler-player-container>.song-actually-container {
     width: auto;
     height: auto;
 }
-.song-actually-container > .list-item-container{
+
+.song-actually-container>.list-item-container {
     width: 340px;
     height: 80px;
     display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 0px;
-background-color: transparent;
-box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0px;
+    background-color: transparent;
+    box-sizing: border-box;
 }
-.list-item-container > img{
+
+.list-item-container>img {
     width: 40%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px 0px 0px 10px;
 }
-.list-item-container > h3{
+
+.list-item-container>h3 {
     width: 60%;
     height: 100%;
     padding: 0px 5px;
@@ -96,6 +100,7 @@ box-sizing: border-box;
     background-color: transparent;
 
 }
+
 .btns-controler-secundary {
     width: 200px;
     padding: 0;
@@ -109,15 +114,76 @@ box-sizing: border-box;
     align-items: center;
 
 }
-*/
-.play-song-container > .fa-solid{
+ .play-song-container>.fa-solid {
     width: 10%;
     height: 10%;
     color: white;
     background-color: transparent;
     border: none;
 }
-.btns-controler-secundary > button{
+
+.btns-controler-secundary>button {
     background-color: transparent;
-    border:none;
+    border: none;
+}
+
+@media (max-width:425px) {
+    .controler-player{
+        width: 100%;
+        padding: 0.2rem;
+        justify-content: space-evenly;
+    }
+    .btn{
+        width: 1rem;
+        height: 1rem;
+    }
+    .song-actually-container{
+        background-color: transparent;
+    }
+    .song-actually-container>.list-item-container {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0px;
+        background-color: transparent;
+        box-sizing: border-box;
+    }
+    
+    .list-item-container>img {
+        width: 40%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 10px 10px 10px 10px;
+    }
+    
+    .list-item-container>h3 {
+        width: 60%;
+        height: 100%;
+        padding: 0px 5px;
+        font-size: 0.8rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 700;
+        color: aliceblue;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+    
+    }
+    .volume-youtube-container{
+        display: none;
+    }
+    .btn-back-Youtube-container{
+        display: none;
+    }
+    .btn-next-Youtube-container{
+        display: none;
+    }
+    .btns-controler-secundary{
+        width: auto;
+        padding: 0 5px;
+    }
 }

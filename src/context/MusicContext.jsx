@@ -35,30 +35,20 @@ export default function MusicContextProvider({ children }) {
     }
     return (
         <MusicContext.Provider value={{
-            musicActually,
-            resultSearchYoutube,
             volume,
             progress,
-            player,
-            isPlaying,
-            audio,
             isMoved,
             indexSong,
-            play,
-            wavesurferMedia,
-            urlSongs,
             currentTime,
-            updatePlay,
-            updateWavesurfer,
-            setIndexSong,
+            
             setIsMoved,
-            setPlayer,
-            setIsPlaying,
+           
+            
             setProgress,
             setVolume,
-            setUrlSongs,
-            setResultSearchYoutube,
-            setMusicActually
+            
+            
+           
         }}>
             {children}
         </MusicContext.Provider>
