@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { MusicContext } from '../context/MusicContext';
-import { ItemResultSearchYoutube } from './BackgroundSong';
+
 import '../style/youtube.css'
 import { useStore } from '../stateZustand/zustandState';
 

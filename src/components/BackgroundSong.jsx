@@ -14,9 +14,9 @@ export default function BackgroundSong() {
         <InputSearchYoutube />
       </div>
       <div className="prueba2">
-        {listObjectVideoSearch[0]?listObjectVideoSearch.map((e) => (
-          <ItemResultSearchYoutube thumbnail={e.thumbnail} key={e.id} title={e.title} idItem={e.videoId} />
-        )):""}
+        {listObjectVideoSearch && listObjectVideoSearch.map((e , index) => (
+          <ItemResultSearchYoutube thumbnail={e.thumbnail} key={e.id || index + '#%(8'} title={e.title} idItem={e.videoId} />
+        ))}
       </div>
       <PlaySong />
       <ControlerPlayer />
@@ -119,20 +119,19 @@ function InputSearchYoutube() {
   )
 }
 
-export function ItemResultSearchYoutube({ thumbnail, title, idItem  }) {
+ function ItemResultSearchYoutube({ thumbnail, title, idItem  }) {
  
-  const {updateIdActualVideoIframe,idActualVideoIframe} = useStore((state)=> state)
+  const {updateIdActualVideoIframe,updateObjectVideoActually} = useStore((state)=> state)
   
   const handleMusic = () => {
-    //let idMusicYoutube= listObjectVideoSearch.map((e)=>{
-     //return  e.videoId
-    //})
-    //console.log(idMusicYoutube);
-    //setUrlSongs(idMusicYoutube);
+    const ObjectActually = {videoId:idItem,
+      thumbnail:[{url:thumbnail},{url:""}],
+      title:title,
+      lengthText:'5.56'}
+
     updateIdActualVideoIframe(idItem);
-    //setMusicActually({thumbnail,title,idItem})
-    console.log(idItem);
-    console.log(idActualVideoIframe)
+    updateObjectVideoActually(ObjectActually);
+   
 
   }
 

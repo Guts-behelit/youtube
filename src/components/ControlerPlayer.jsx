@@ -3,8 +3,8 @@ import "../style/controlerPlayer.css"
 import { BotonShowMusicPlayer } from "./PlaySong"
 import { MusicContext } from "../context/MusicContext"
 import BotonPlayYoutube from "./BotonPlayYoutube"
-import { ItemResultSearchYoutube } from "./BackgroundSong"
-import { ItemYoutube } from "./Youtube"
+import { useStore } from "../stateZustand/zustandState"
+
 
 export default function ControlerPlayer() {
 
@@ -30,37 +30,23 @@ export default function ControlerPlayer() {
   )
 }
 function SongActually(){
-  const { resultSearchYoutube,indexSong ,musicActually} = useContext(MusicContext)
-  const [songActually, setSongActually] = useState({})
-  useEffect(() => {
-    setSongActually(musicActually)
-    console.log('probando el valor de musicActuallly: ',musicActually)
-    /**
-     * queda como issue
-     * actualizar el estado de listItem 
-     * para que sincronize el {} del video actual 
-     * que se esta reproduciendo
-     * tenemos que optimizar el estado 
-     * para su facil actualizacion 
-     * 
-     */
-  }, [musicActually])
-  let qualityImg = {
-    default: 'default.jpg',
-    mqdefault: 'mqdefault.jpg',
-    hqdeafult: 'hqdefault.jpg',
-    sddefault: 'sddefault.jpg',
-    maxresdefault: 'maxresdefault.jpg',
-  };
+  //const { resultSearchYoutube,indexSong ,musicActually} = useContext(MusicContext)
+  
+  const {objectVideoActually} = useStore((state)=> state);
+  const { videoId,
+     thumbnail: [{ url: smallThumbnail }],
+      title,
+       lengthText: timeVideo } = objectVideoActually;
+ 
   return(
     <div className="song-actually-container">
           <div className='list-item-container'
           onClick={()=>{
-            console.log(songActually.title)
+            console.log(objectVideoActually)
           }}
           >
-            <img src={songActually.thumbnail} alt={songActually.thumbnail} />
-            <h3>{songActually.title}</h3>
+            <img src={smallThumbnail} alt={title} />
+            <h3>{title}</h3>
           </div>
         </div>
   )
