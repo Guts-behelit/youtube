@@ -1,7 +1,4 @@
-//import { useContext } from "react"
-//import { MusicContext } from "../context/MusicContext"
 
-//import "../style/controlerPlayer.css"
 import '../style/botonPlay.css'
 import { useStore } from "../stateZustand/zustandState";
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import "../style/controlerPlayer.css"
 import { BotonShowMusicPlayer } from "./PlaySong"
 import { MusicContext } from "../context/MusicContext"
@@ -30,13 +30,12 @@ export default function ControlerPlayer() {
   )
 }
 function SongActually(){
-  //const { resultSearchYoutube,indexSong ,musicActually} = useContext(MusicContext)
   
   const {objectVideoActually} = useStore((state)=> state);
-  const { videoId,
+  const { 
      thumbnail: [{ url: smallThumbnail }],
       title,
-       lengthText: timeVideo } = objectVideoActually;
+        } = objectVideoActually;
  
   return(
     <div className="song-actually-container">
@@ -51,66 +50,16 @@ function SongActually(){
         </div>
   )
 }
-function CambiaLista() {
 
-  const { setUrlSongs, setIndexSong } = useContext(MusicContext);
-
-  useEffect(() => {
-    const apiKey = 'AIzaSyBmcw5S5OlPzyBe-CaQfAgrt0dHYpSTNyE'
-    // Reemplaza con tu clave de API válida
-    const query = 'pollo';        // Palabra clave a buscar
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${query}&key=${apiKey}&maxResults=5`;
-
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        // Procesar y mostrar los resultados
-        let listSongs = [];
-        console.log('Resultados de búsqueda:', data);
-
-        data.items.forEach(item => {
-          const videoId = item.id.videoId;
-          listSongs.push(videoId);
-          const title = item.snippet.title;
-          const description = item.snippet.description;
-          const thumbnail = item.snippet.thumbnails.default.url;
-          const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-          // Mostrar la información en la consola
-          console.log('Título:', title);
-          console.log('Descripción:', description);
-          console.log('Miniatura:', thumbnail);
-          console.log('URL del Video:', videoUrl);
-          console.log('---');
-        });
-        setUrlSongs(listSongs)
-      })
-      .catch(error => {
-        console.error('Error al obtener datos de YouTube API:', error);
-      });
-  }, [])
-  return (
-    <div className="btn-cambialista-contianer">
-      <button
-        onClick={() => {
-
-          setUrlSongs(listSongs)
-          setIndexSong(0)
-        }}
-      >
-        cambia lista
-      </button>
-    </div>
-  )
-}
 export function BarProgressYoutube() {
-  const { progress, player } = useContext(MusicContext);
+  const { progress } = useContext(MusicContext);
+  const {referenceIframe} = useStore((state)=> state);
   const handleProgressClick = (e) => {
     e.stopPropagation();
     const progressBar = e.target;
     const clickPosition = e.nativeEvent.offsetX / progressBar.offsetWidth;
-    const newTime = player.getDuration() * clickPosition;
-    player.seekTo(newTime);
+    const newTime = referenceIframe.getDuration() * clickPosition;
+    referenceIframe.seekTo(newTime);
   };
   return (
     <div className="bar-progress-youtube-container">
@@ -138,11 +87,7 @@ export function BarProgressYoutube() {
   )
 }
 
-function BotonMuteYoutube() {
-  return (
-    <></>
-  )
-}
+
 
 function BotonVolumeYoutube() {
   const { volume, setVolume, player } = useContext(MusicContext)
@@ -175,7 +120,7 @@ function BotonVolumeYoutube() {
 function BotonNextYoutube() {
   const { urlSongs, setIndexSong, indexSong } = useContext(MusicContext);
   return (
-    <button className="btn"
+    <button className="btn btn-next-Youtube-container"
       onClick={() => {
         if (indexSong < urlSongs.length - 1) {
           setIndexSong((i) => i + 1);
@@ -189,7 +134,7 @@ function BotonNextYoutube() {
 function BotonBackYoutube() {
   const { urlSongs, setIndexSong, indexSong } = useContext(MusicContext);
   return (
-    <button className="btn"
+    <button className="btn btn-back-Youtube-container"
       onClick={() => {
         if (indexSong > 0) {
           setIndexSong((i) => i - 1);

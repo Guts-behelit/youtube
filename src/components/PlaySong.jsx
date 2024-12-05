@@ -1,8 +1,7 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import "../style/playSong.css"
 
 import { MusicContext } from "../context/MusicContext";
-import YouTubePlayer from "./Youtube";
 import { CopyIframe } from "../stateZustand/CopyIframe";
 
 export default function PlaySong() {
@@ -27,7 +26,7 @@ export default function PlaySong() {
 export function BotonShowMusicPlayer(){
   const { isMoved, setIsMoved } = useContext(MusicContext)
   return(
-    <button
+    <button className="btn-show-music-player-container"
        onClick={()=>{
         setIsMoved(!isMoved)
       }}

@@ -1,89 +1,7 @@
-import { useContext, useEffect, useRef, useState } from 'react';
-import { MusicContext } from '../context/MusicContext';
+import {  useEffect, useState } from 'react';
 
 import '../style/youtube.css'
 import { useStore } from '../stateZustand/zustandState';
-
-
-
-const YouTubePlayer = () => {
-  const playerRef = useRef(null);
-  // const [indexSong, setIndexSong] = useState(0);
-  const { isPlaying, setIsPlaying, player, setPlayer, setProgress, urlSongs, indexSong, resultSearchYoutube } = useContext(MusicContext);
-  //const [progress, setProgress] = useState(0);
-  //const [volume, setVolume] = useState(50);
-  const [listItem, setListItem] = useState([])
-
-  useEffect(() => {
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    window.onYouTubeIframeAPIReady = () => {
-      const newPlayer = new window.YT.Player(playerRef.current, {
-        videoId: urlSongs[indexSong], // Primer video
-        playerVars: { autoplay: 0, controls: 0 }, // Sin controles nativos
-        events: {
-          onReady: (event) => setPlayer(event.target),
-          onStateChange: (event) => handleStateChange(event),
-        },
-      });
-    };
-    console.log("urlsongs")
-  }, [urlSongs]);
-
-  // Efecto para cambiar de video cuando indexSong cambia
-  useEffect(() => {
-    if (player) {
-      player.loadVideoById(urlSongs[indexSong]); // Cambia el video sin recrear el reproductor
-      setIsPlaying(false); // Pausa el video al cambiar
-    }
-  }, [indexSong, player, urlSongs]);
-
-  //
-  useEffect(() => {
-    let interval;
-
-    if (isPlaying && player) {
-      interval = setInterval(() => {
-        if (player && player.getDuration) {
-          const currentTime = player.getCurrentTime();
-          const duration = player.getDuration();
-          const progressPercentage = (currentTime / duration) * 100;
-          setProgress(progressPercentage);
-        }
-      }, 500);
-    }
-
-    return () => clearInterval(interval);
-  }, [isPlaying, player]);
-
-  const handleStateChange = (event) => {
-    if (event.data === window.YT.PlayerState.PLAYING) {
-      setIsPlaying(true);
-    } else {
-      setIsPlaying(false);
-    }
-  };
-
-
-
-  return (
-    <div className='youtube-player-iframe-container'>
-      <div className='iframe-container'>
-        <div id="youtube-iframe" ref={playerRef} ></div>
-      </div>
-
-
-      {/* Aqui va el iframe de youtube */}
-      <ListItemYoutube />
-    </div>
-  );
-};
-
-export default YouTubePlayer;
-
 
 
 export function ListItemYoutube() {
@@ -201,7 +119,6 @@ console.error(error)
 }
 
 export function ItemYoutube({ videoItem }) {
-  // const {setUrlSongs,setIndexSong,setMusicActually} = useContext(MusicContext);
   const { updateIdActualVideoIframe,updateObjectVideoActually } = useStore((state) => state)
   const { videoId, thumbnail: [{ url: smallThumbnail }], title, lengthText: timeVideo } = videoItem
 
