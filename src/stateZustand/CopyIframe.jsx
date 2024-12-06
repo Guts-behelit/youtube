@@ -3,7 +3,7 @@ import { useStore } from "./zustandState";
 import { useContext } from "react";
 import { MusicContext } from "../context/MusicContext";
 import { ListItemYoutube } from "../components/ListItemYoutube";
-
+import style from '../style/copyIframe.module.css'
 export const CopyIframe = () => {
     const playerRef = useRef(null);
     const {idActualVideoIframe ,
@@ -82,16 +82,12 @@ export const CopyIframe = () => {
       }
     };
   
-  
-  
     return (
-      <div className='youtube-player-iframe-container'>
+      <div className={style.youtubePlayerIframeContainer}>
         {/* Aqui va el iframe de youtube */}
-        <div className='iframe-container'>
-          <div id="youtube-iframe" ref={playerRef} ></div>
+        <div className={style.iframeContainer}>
+          <div id={style.youtubeIframe} ref={playerRef} ></div>
         </div>
-  
-  
         <ListItemYoutube/>
     {/*aqui va el componente listItem*/}
       </div>

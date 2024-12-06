@@ -50,15 +50,15 @@
  
     .listItemContainer {
         width: 100%;
-        height: 256px;
-        padding: 2px 0px;
+        height: 280px;
+        padding: 0px 0px;
         background-color: transparent;
-        
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         box-sizing: border-box;
+        position: relative;
     }
     
     
@@ -67,28 +67,77 @@
         height: 180px;
         object-fit: cover;
         background-color: transparent;
-        border-radius: 0px;
+        border-radius: 0px ;
     }
-    
+    .listItemContainer > .timeVideo{
+        display: inline-block;
+        padding: 5px;
+        background-color: rgb(29, 29, 29);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 600;
+        color: white;
+        position: absolute;
+        right: 1%;
+        bottom: 34%;
+    }
     .listItemContainer > .titleContainer {
         width: 100%;
-        height: 74px;
+        height: 90px;
         margin: 0;
-        padding: 10px;
-        font-size: 14px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-weight: 500;
-        background-color: rgb(22, 22, 22);
-        color: aliceblue;
+        padding: 0 5px;
+        background-color: rgb(58, 57, 57);
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+    .titleContainer > .imageChannelContainer{
+        margin: 0;
+        padding: 0;
+        width: 16%;
+        height: 70%;
+        border-radius: 50%;
         box-sizing: border-box;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .imageChannelContainer > img{
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        padding: 0;
+        border-radius: 50%;
+    }
+    .titleContainer > .description{
+        margin: 0;
+        padding: 5px 0;
+        width: 84%;
+        height: 100%;
+        background-color: transparent;
+        
+    }
+    .description > .descriptionTitle{
+        width: 100%;
+        height: 50px;
+        margin: 0;
+        padding: 0px 10px;
+        font-size: 1rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 500;
+        line-height: 50px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: transparent;
+        box-sizing: border-box;
         overflow: hidden;
+        
+        
     }
-    .titleContainer> h3{
-        margin:0;
-        padding:0;
+    .description > span{
+        display: block;
+        padding: 0 10px;
+       color: gray;
+        background-color: transparent;
     }
-    
   }
