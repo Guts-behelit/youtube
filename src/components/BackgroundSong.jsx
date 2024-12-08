@@ -4,6 +4,8 @@ import ControlerPlayer from "./ControlerPlayer"
 import PlaySong from "./PlaySong"
 import { useStore } from "../stateZustand/zustandState";
 import { ItemResultSearchYoutube } from "./ItemResultSearchYoutube";
+import MagnifyingGlass  from '/iconSvg/magnifying-glass.svg'
+
 export default function BackgroundSong() {
   const { listObjectVideoSearch } = useStore((state)=> state)
 
@@ -85,9 +87,12 @@ function InputSearchYoutube() {
   return (
     <div className="input-search-container">
       <div className="input-container">
-        <i className="fa-solid fa-magnifying-glass"
-          onClick={getInfoApiYoutube}
-        ></i>
+        <img src={MagnifyingGlass} 
+        onClick={getInfoApiYoutube}
+        className="magnifying-glass"
+        alt="" />
+      
+        
         <input
           type="text"
           placeholder="Busca tu canción"
@@ -108,12 +113,12 @@ function InputSearchYoutube() {
           }}
         />
       </div>
-      {isHistoryVisible && (
+      {/*isHistoryVisible && (
         <div className="history-container" ref={historyRef}>
-          {/* Aquí va el historial de búsquedas */}
+          }
           Historial de búsquedas...
         </div>
-      )}
+      )*/}
     </div>
   )
 }

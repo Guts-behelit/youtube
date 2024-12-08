@@ -7,22 +7,28 @@ import { useStore } from "../stateZustand/zustandState"
 
 
 export default function ControlerPlayer() {
-
+  const { isMoved, setIsMoved } = useContext(MusicContext)
   return (
-    <div className="controler-player-container">
+    <div className="controler-player-container"
+    onClick={()=>{
+      setIsMoved(!isMoved)
+    }}
+    >
 
       <BarProgressYoutube />
       <div className="controler-player">
+      {/*<div className="btns-controler-secundary">
+          <BotonVolumeYoutube />
+          <BotonShowMusicPlayer />
+        </div> */}
+      <SongActually/>
         <div className="btns-controler-primary">
           <BotonBackYoutube />
           <BotonPlayYoutube />
           <BotonNextYoutube />
         </div>
-        <SongActually/>
-        <div className="btns-controler-secundary">
-          <BotonVolumeYoutube />
-          <BotonShowMusicPlayer />
-        </div>
+        
+
 
       </div>
 
@@ -30,13 +36,12 @@ export default function ControlerPlayer() {
   )
 }
 function SongActually(){
-  
   const {objectVideoActually} = useStore((state)=> state);
   const { 
      thumbnail: [{ url: smallThumbnail }],
       title,
         } = objectVideoActually;
- 
+
   return(
     <div className="song-actually-container">
           <div className='list-item-container'
@@ -45,7 +50,12 @@ function SongActually(){
           }}
           >
             <img src={smallThumbnail} alt={title} />
-            <h3>{title}</h3>
+            <div className="text-music-container">
+            <span
+            className={title.length > 15 ? 'textAnimation':''}
+            >{title}</span>
+            </div>
+            
           </div>
         </div>
   )

@@ -18,12 +18,11 @@ export function ItemResultSearchYoutube({ thumbnail, title, idItem  }) {
     }
   
     return (
-      <div className={style.itemResultSearchContainer}
-        onClick={handleMusic}
-      >
-        <img className={style.imageSearchContainer} src={thumbnail} alt={`imagen de ${thumbnail}`} />
-        <h3 className={style.titleSearchContainer}>{title}</h3>
-  
+      <div className={style.itemNewContainer}
+        onClick={handleMusic}>
+        <img className={style.itemImage} src={thumbnail} alt={`imagen de ${thumbnail}`} />
+        <h3 className={style.description}>{title}</h3>
+        <div className={style.filtro}></div>
       </div>
     )
   }

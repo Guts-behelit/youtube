@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgb(34, 33, 34);
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +55,7 @@
 .fa-solid {
     background-color: transparent;
     font-size: 30px;
-    color: aliceblue;
+    color: crimson;
 }
 
 .fa-solid:hover,
@@ -66,6 +66,7 @@
 .controler-player-container>.song-actually-container {
     width: auto;
     height: auto;
+    color: black;
 }
 
 .song-actually-container>.list-item-container {
@@ -93,7 +94,7 @@
     font-size: 0.8rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
-    color: aliceblue;
+    color: black;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -115,10 +116,10 @@
     align-items: center;
 
 }
- .play-song-container>.fa-solid {
+ .play-song-container >.fa-solid {
     width: 10%;
     height: 10%;
-    color: white;
+    color: crimson;
     background-color: transparent;
     border: none;
 }
@@ -131,9 +132,10 @@
 @media (max-width:425px) {
     .controler-player{
         width: 100%;
-        padding: 0.2rem;
+        padding: 0.2rem 0.4rem;
         justify-content: space-evenly;
         background-color: transparent;
+        color: crimson;
     }
     .btn{
         width: 1rem;
@@ -159,19 +161,42 @@
         object-fit: cover;
         border-radius: 10px 10px 10px 10px;
     }
-    
-    .list-item-container>h3 {
-        width: 60%;
+    .list-item-container > .text-music-container{
+        width: 110px;
         height: 100%;
+        overflow: hidden;
+        background-color: transparent;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+    }
+    @keyframes moveText {
+        0% {
+          transform: translateX(0); /* Comienza en su posición original */
+        }
+        100% {
+          transform: translateX(-100%); /* Desplaza a la izquierda */
+        }
+      }
+    .text-music-container > span {
+        width:auto ;
+        height: 50%;
+        margin: 0;
         padding: 0px 5px;
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-weight: 700;
-        color: aliceblue;
+        color: rgb(54, 54, 54);
         text-align: center;
        text-overflow: clip;
         background-color: transparent;
+        display: inline-block;
+    white-space: nowrap;
+    box-sizing: border-box;
     
+    }
+    .textAnimation{
+        animation: moveText 12s linear infinite alternate;
     }
     .volume-youtube-container{
         display: none;

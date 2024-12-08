@@ -7,6 +7,7 @@ export function ListItemYoutube() {
   const [listVideoRecomended, setListVideoRecomeded] = useState([]);
   const { idActualVideoIframe ,objectVideoActually} = useStore((state) => state);
   const { title } = objectVideoActually;
+  const [infoVideoPlaying,setInfoVideoPlaying] = useState({infoVideo:'',infoChannel:''})
   useEffect(() => {
     const fetchData = async () => {
       const url = `https://yt-api.p.rapidapi.com/related?id=${idActualVideoIframe}`;
@@ -29,15 +30,66 @@ export function ListItemYoutube() {
     };
 
     fetchData();
+    const getInfoApiYoutube = () => {
+      const apiKey = 'AIzaSyBmcw5S5OlPzyBe-CaQfAgrt0dHYpSTNyE'
+      // Reemplaza con tu clave de API válida       // Palabra clave a buscar
+      const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${idActualVideoIframe}&key=${apiKey}`;
+  
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Procesar y mostrar los resultados
+          console.log('Resultados de búsqueda:', data);
+          let listFecthYoutube = []
+
+            data.items.forEach(item =>  listFecthYoutube.push(item))
+            console.log('get infovideo: ',listFecthYoutube)
+            setInfoVideoPlaying((state) => ({
+              ...state, // Mantén el resto del estado
+              infoVideo: listFecthYoutube[0] // Aquí suponemos que `item` es lo que quieres actualizar
+            }));
+        })
+        .catch(error => {
+          console.error('Error al obtener datos de YouTube API:', error);
+        });
+    }
+    getInfoApiYoutube();
   }, [idActualVideoIframe]);
 
+  useEffect(()=>{
+    const getInfoChannel=()=>{
+      const idChannel = infoVideoPlaying.infoVideo.snippet.channelId;
+      const apiKey = 'AIzaSyBmcw5S5OlPzyBe-CaQfAgrt0dHYpSTNyE'
+      // Reemplaza con tu clave de API válida       // Palabra clave a buscar
+      const apiUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${idChannel}&key=${apiKey}`;
+  
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // Procesar y mostrar los resultados
+         
+          let listFecthYoutube = []
+
+            data.items.forEach(item =>  listFecthYoutube.push(item))
+            console.log('get info channel: ',listFecthYoutube)
+            setInfoVideoPlaying((state) => ({
+              ...state, // Mantén el resto del estado
+              infoChannel: listFecthYoutube[0].snippet.thumbnails.default.url // Aquí suponemos que `item` es lo que quieres actualizar
+            }));
+        })
+        .catch(error => {
+          console.error('Error al obtener datos de YouTube API:', error);
+        });     
+    }
+    //getInfoChannel();
+  },[infoVideoPlaying.infoVideo])
 
 
   return (
     <div className={style.listMusicYoutubeIframe}>
       <div className={style.descriptionVideoActualContainer}>
         <figure className={style.imageContainer}>
-          <img src= {''}
+          <img src= {infoVideoPlaying.infoChannel}
           alt="" />
         </figure>
         <div className={style.description}>
