@@ -87,17 +87,6 @@ export function ListItemYoutube() {
 
   return (
     <div className={style.listMusicYoutubeIframe}>
-      {/*<div className={style.descriptionVideoActualContainer}>
-        <figure className={style.imageContainer}>
-          <img src= {infoVideoPlaying.infoChannel}
-          alt="" />
-        </figure>
-        <div className={style.description}>
-        <h3>{title}</h3>
-        <p>54M</p>
-        </div>
-      </div>*/}
-      <SwiperSliderMusic/>
       {listVideoRecomended &&
         listVideoRecomended.filter((videoRecomended) => (videoRecomended.type == 'video')).map((videoRecomended) => (
           <ItemYoutube key={videoRecomended.videoId + '$%&#'}
