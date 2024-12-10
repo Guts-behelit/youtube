@@ -4,6 +4,7 @@ import ControlerPlayer from "./ControlerPlayer"
 import PlaySong from "./PlaySong"
 import { useStore } from "../stateZustand/zustandState";
 import { ItemResultSearchYoutube } from "./ItemResultSearchYoutube";
+import SwiperSliderMusic from "./slider/SwiperSliderMusic";
 import MagnifyingGlass  from '/iconSvg/magnifying-glass.svg'
 
 export default function BackgroundSong() {
@@ -14,10 +15,16 @@ export default function BackgroundSong() {
       <div className="prueba1">
         <InputSearchYoutube />
       </div>
+      
       <div className="prueba2">
+      <SwiperSliderMusic videoRecomendedId={'oBofuVYDoG4'}/>
+        <div className="result-video">
         {listObjectVideoSearch && listObjectVideoSearch.map((e , index) => (
           <ItemResultSearchYoutube thumbnail={e.thumbnail} key={e.id || index + '#%(8'} title={e.title} idItem={e.videoId} />
         ))}
+        </div>
+        
+        
       </div>
       <PlaySong />
       <ControlerPlayer />

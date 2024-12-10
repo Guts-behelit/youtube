@@ -2,7 +2,7 @@ import {  useEffect, useState } from 'react';
 import style from '../style/listItemYoutube.module.css'
 import { useStore } from '../stateZustand/zustandState';
 import { ItemYoutube } from './ItemYoutube';
-
+import SwiperSliderMusic from  './slider/SwiperSliderMusic';
 export function ListItemYoutube() {
   const [listVideoRecomended, setListVideoRecomeded] = useState([]);
   const { idActualVideoIframe ,objectVideoActually} = useStore((state) => state);
@@ -87,7 +87,7 @@ export function ListItemYoutube() {
 
   return (
     <div className={style.listMusicYoutubeIframe}>
-      <div className={style.descriptionVideoActualContainer}>
+      {/*<div className={style.descriptionVideoActualContainer}>
         <figure className={style.imageContainer}>
           <img src= {infoVideoPlaying.infoChannel}
           alt="" />
@@ -96,7 +96,8 @@ export function ListItemYoutube() {
         <h3>{title}</h3>
         <p>54M</p>
         </div>
-      </div>
+      </div>*/}
+      <SwiperSliderMusic/>
       {listVideoRecomended &&
         listVideoRecomended.filter((videoRecomended) => (videoRecomended.type == 'video')).map((videoRecomended) => (
           <ItemYoutube key={videoRecomended.videoId + '$%&#'}

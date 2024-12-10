@@ -1,5 +1,5 @@
 
-   .itemResultSearchContainer{
+.itemResultSearchContainer{
     width: 100%;
     height: 100%;
     padding: 0px;
@@ -41,49 +41,22 @@
     background-color: crimson;
   }
 @media (max-width:425px) {
-    .itemResultSearchContainer{
-      width: 100%;
+    .itemSwiperSlideContainer{
+      width: 160px;
       height: 100%;
-      padding: 0px ;
-      background-color: black;
-      color: aliceblue;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .imageSearchContainer{
-      width: 100%;
-      height:180px;
-      margin: 0;
-      padding: 0;
-      object-fit: contain;
-      background-color: transparent;
-    }
-    .titleSearchContainer{
-      width: 100%;
-      height:74px;
-      padding: 0.5re8 10px;
-      font-size: 0.9em;
-      
-    }
-    .itemNewContainer{
-      width: 98%;
-      height: 154px;
       border-radius: 10px;
       position: relative;
       z-index: 0;
       overflow: hidden;
     }
-    .itemImage{
+    .itemSwiperImage{
       width: 100%;
       height: 100%;
       border-radius: 10px;
       z-index: 0;
       object-fit: cover;
     }
-    .description{
+    .itemSwiperDescription{
       width: 100%;
       min-height: 50px;
       margin: 0;
@@ -100,7 +73,7 @@
       display: flex;
       align-items: flex-end; 
     }
-    .filtro{
+    .itemFiltroSwiper{
       width: 100%;
       height: 100%;
       background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 5, 0.979) 90%);

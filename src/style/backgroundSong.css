@@ -184,6 +184,13 @@
     /************************************/
     .prueba2{
       width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    .result-video{
+      width: 100%;
       min-height:100vh;
       height: auto;
       margin:0px;
@@ -191,8 +198,8 @@
       padding-bottom: 160px;
       overflow-y: auto;
       display: grid;
-      grid-template-columns:1fr;
-      grid-template-rows: repeat(auto-fill, 256px);
+      grid-template-columns:1fr 1fr;
+      grid-template-rows: repeat(auto-fill, 156px);
       align-items: center;
       justify-content: center;
       justify-items: center;
