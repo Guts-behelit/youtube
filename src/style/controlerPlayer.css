@@ -1,6 +1,6 @@
 .controler-player-container {
     width: 100%;
-    border-radius: 0 0 20px 0;
+    border-radius: 0 0 0px 0;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -9,12 +9,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 5;
+    z-index: 2;
 }
 
 .bar-progress-youtube-container {
     width: 100%;
-    height: 6px;
+    height: 8px;
 }
 
 .background-progress-bar {
@@ -32,16 +32,17 @@
 .controler-player {
     width: 100%;
     padding: 0.5rem;
-    background-color: rgb(20, 20, 20);
+    background-color:rgb(255, 255, 255);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     box-sizing: border-box;
 }
 
 .btns-controler-primary {
     display: flex;
-    gap: 10px;
+    justify-content: space-evenly;
     align-items: center;
+    gap: 10px;
     background-color: transparent;
 }
 
@@ -64,34 +65,39 @@
 }
 
 .controler-player-container>.song-actually-container {
-    width: auto;
+    width:auto;
     height: auto;
     color: black;
+    
+    
 }
 
 .song-actually-container>.list-item-container {
-    width: 340px;
-    height: 80px;
+    min-width:100px;
+    max-width: 400px;
+    height: 60px;
+    padding-top: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0px;
-    background-color: transparent;
+    background-color:whitesmoke;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
 .list-item-container>img {
-    width: 40%;
+    width: 30%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
 }
 
-.list-item-container>h3 {
-    width: 60%;
+.list-item-container>.text-music-container {
+    width: 70%;
     height: 100%;
-    padding: 0px 5px;
-    font-size: 0.8rem;
+    padding: 0px 10px;
+    font-size: 0.7rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 700;
     color: black;
@@ -99,7 +105,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
+    background-color: rgba(209, 209, 209, 0.925);
 
 }
 

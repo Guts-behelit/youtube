@@ -1,44 +1,96 @@
 
-
 .listItemContainer{
     width: 100%;
+    max-height: 250px;
     padding: 2px 0px;
-    background-color: transparent;
+    background-color: purple;
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
+    position: relative;
 }
 
-.listItemContainer:hover  .titleContainer{
-    background-color: crimson;
-}
 
-.listItemContainer > .imageItem {
-    width: 40%;
+.listItemContainer  > .imageItem{
+    width: 50%;
     height: 100%;
     object-fit: cover;
-    background-color: transparent;
-    border-radius: 10px 0px 0px 10px;
+    background-color: green;
+
+}
+
+.listItemContainer > .timeVideo{
+    display: inline-block;
+    padding: 5px;
+    background-color: rgb(252, 108, 12);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+    right: 1%;
+    bottom: 34%;
 }
 .listItemContainer > .titleContainer {
-    width: 60%;
+    width: 50%;
     height: 100%;
     margin: 0;
     padding: 10px;
     font-size: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(58, 57, 57);
+    background-color: rgb(12, 35, 238);
     color: aliceblue;
+    box-sizing: border-box;
+    display: flex;
+        align-items: center;
+        overflow: hidden;
+}
+.titleContainer > .imageChannelContainer{
+    margin: 0;
+    padding: 0;
+    width: 16%;
+    height: 70%;
+    border-radius: 50%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.titleContainer > h3{
-    width: auto;
+.imageChannelContainer > img{
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+}
+.titleContainer > .description{
+    margin: 0;
+    padding: 5px 0;
+    width: 84%;
+    height: 100%;
+    background-color: transparent;
+    
+}
+.description > .descriptionTitle{
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0px 10px;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    line-height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.description > span{
+    display: block;
+    padding: 0 10px;
+   color: gray;
     background-color: transparent;
 }
 
@@ -131,8 +183,6 @@
         background-color: transparent;
         box-sizing: border-box;
         overflow: hidden;
-        
-        
     }
     .description > span{
         display: block;

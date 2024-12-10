@@ -1,11 +1,9 @@
-.background-song-container {
+.backgroundSongContainer {
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-    background-color: rgb(34, 33, 33);
-    background-color: aliceblue;
-   
+    background-color:white;
     position: relative;
     z-index: 0;
     box-sizing: border-box;
@@ -16,48 +14,50 @@
   
   .prueba1 {
     width: 100%;
-    height: 150px;
+    height: 80px;
     padding: 10px 10px;
-    background-color: rgb(34, 33, 33);
+    background-color: whitesmoke;
     box-sizing: border-box;
-    
     display: flex;
+    justify-content: flex-end;
     align-items: center;
   }
   
-  .input-search-container {
+  .inputSearchContainer {
     width: 400px;
     height: auto;
     padding: 0px 0px 0px 0px;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(250, 250, 250);
     box-sizing: border-box;
     border-radius: 10px 10px;
     display: flex;
     flex-direction: column;
-   
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Sombra principal */
+    0 1px 3px rgba(0, 0, 0, 0.08);
   }
   
-  .input-container {
+  .inputContainer {
     width: 100%;
     height: 40px;
     padding: 0px;
     background-color: transparent;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     box-sizing: border-box;
   }
-  
-  .input-container > i {
+  .inputContainer > .magnifyingGlass {
     width: 10%;
     height: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 0 7px;
     background-color: transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+    fill:#3E3E3F;
   }
   
-  .input-container > input {
+  .inputContainer > input {
     width: 90%;
     height: 80%;
     padding-left: 10px;
@@ -66,8 +66,26 @@
     font-size: 1rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
+  .inputContainer > input {
+    width: 90%;
+    height: 100%;
+    margin: 0;
+    padding: 15px 0px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    box-sizing: border-box;
+    background-color:rgba(255, 255, 255, 0.411);
+    caret-color: crimson;
+  }
+  .inputContainer > input:focus{
+    outline: none;
+  }
   
-  .history-container {
+  .historyContainer {
     width: 100%;
     height: 100px;
     background-color: rgb(151, 149, 146);
@@ -75,26 +93,34 @@
   }
   .prueba2{
     width: 100%;
+   height: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    background-color: tomato;
+    z-index: 0;
+    overflow: scroll;
+  }
+  .resultVideo{
+    width: 100%;
     min-height:100vh;
-    padding:0px;
-    padding-bottom: 100px;
-    overflow-y: auto;
-    background-color: rgb(34, 33, 33);
-    background-color: aliceblue;
-    box-sizing: border-box;
+    margin:0px;
+    padding:20px 2rem;
+   padding-bottom: 80px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(10, auto);
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows: repeat(auto-fill, 256px);
     align-items: center;
     justify-content: center;
     justify-items: center;
-    gap: 20px 10px;
-    z-index: 0;
+    gap: 10px;
+    box-sizing: border-box;
+    background-color:white;
+    overflow: scroll;
+    
   }
-
-
   @media (max-width:425px) {
-    .background-song-container {
+    .backgroundSongContainer {
       width: 100%;
       height: auto;
       padding: 0;
@@ -118,7 +144,7 @@
       box-sizing: border-box;
     }
     
-    .input-search-container {
+    .inputSearchContainer {
       width:100%;
       height: 95%;
       padding: 0px 0px;
@@ -130,7 +156,7 @@
               0 1px 3px rgba(0, 0, 0, 0.08);
     }
     
-    .input-container {
+    .inputContainer {
       width: 100%;
       height: 100%;
       padding: 10px;
@@ -145,7 +171,7 @@
     
     }
     
-    .input-container > .magnifying-glass {
+    .inputContainer > .magnifyingGlass {
       width: 10%;
       height: 100%;
       margin: 0;
@@ -156,7 +182,7 @@
       fill:#3E3E3F;
     }
     
-    .input-container > input {
+    .inputContainer > input {
       width: 90%;
       height: 100%;
       margin: 0;
@@ -171,11 +197,11 @@
       background-color:rgba(255, 255, 255, 0.411);
       caret-color: crimson;
     }
-    .input-container > input:focus{
+    .inputContainer > input:focus{
       outline: none;
     }
     
-    .history-container {
+    .historyContainer {
       width: 100%;
       height: 100px;
       background-color: rgb(151, 149, 146);
@@ -189,7 +215,7 @@
       padding: 0;
       display: block;
     }
-    .result-video{
+    .resultVideo{
       width: 100%;
       min-height:100vh;
       height: auto;

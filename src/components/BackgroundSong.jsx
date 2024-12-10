@@ -1,4 +1,4 @@
-import "../style/backgroundSong.css"
+import style from "../style/backgroundSong.module.css"
 import { useRef, useEffect, useState } from "react";
 import ControlerPlayer from "./ControlerPlayer"
 import PlaySong from "./PlaySong"
@@ -11,14 +11,14 @@ export default function BackgroundSong() {
   const { listObjectVideoSearch } = useStore((state)=> state)
 
   return (
-    <section className="background-song-container">
-      <div className="prueba1">
+    <section className={style.backgroundSongContainer}>
+      <div className={style.prueba1}>
         <InputSearchYoutube />
       </div>
       
-      <div className="prueba2">
+      <div className={style.prueba2}>
       <SwiperSliderMusic videoRecomendedId={'oBofuVYDoG4'}/>
-        <div className="result-video">
+        <div className={style.resultVideo}>
         {listObjectVideoSearch && listObjectVideoSearch.map((e , index) => (
           <ItemResultSearchYoutube thumbnail={e.thumbnail} key={e.id || index + '#%(8'} title={e.title} idItem={e.videoId} />
         ))}
@@ -92,11 +92,11 @@ function InputSearchYoutube() {
       });
   }
   return (
-    <div className="input-search-container">
-      <div className="input-container">
+    <div className={style.inputSearchContainer}>
+      <div className={style.inputContainer}>
         <img src={MagnifyingGlass} 
         onClick={getInfoApiYoutube}
-        className="magnifying-glass"
+        className={style.magnifyingGlass}
         alt="" />
       
         

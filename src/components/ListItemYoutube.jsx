@@ -84,10 +84,10 @@ export function ListItemYoutube() {
     //getInfoChannel();
   },[infoVideoPlaying.infoVideo])
 
-
+const ey = false;
   return (
     <div className={style.listMusicYoutubeIframe}>
-      {listVideoRecomended &&
+      { listVideoRecomended &&
         listVideoRecomended.filter((videoRecomended) => (videoRecomended.type == 'video')).map((videoRecomended) => (
           <ItemYoutube key={videoRecomended.videoId + '$%&#'}
             videoItem={videoRecomended} />
