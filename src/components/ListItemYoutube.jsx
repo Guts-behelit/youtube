@@ -5,9 +5,13 @@ import { ItemYoutube } from './ItemYoutube';
 import SwiperSliderMusic from './slider/SwiperSliderMusic';
 export function ListItemYoutube() {
   const [listVideoRecomended, setListVideoRecomeded] = useState([]);
-  const { idActualVideoIframe, objectVideoActually } = useStore((state) => state);
+  const { idActualVideoIframe, objectVideoActually ,colorControlerPlayer} = useStore((state) => state);
   const { title } = objectVideoActually;
   const [infoVideoPlaying, setInfoVideoPlaying] = useState({ infoVideo: '', infoChannel: '' })
+  const formatColorRgb = (array) =>{
+    return `linear-gradient(180deg, rgba(${array[0]},${array[1]},${array[2]},1) 0%, rgba(24,24,23,1) 80%)`
+  //return `rgb(${array[0]},${array[1]},${array[2]})`
+  }
   useEffect(() => {
     const fetchData = async () => {
       const url = `https://yt-api.p.rapidapi.com/related?id=${idActualVideoIframe}`;
@@ -66,9 +70,11 @@ export function ListItemYoutube() {
 
 
 
-  const ey = false;
+  
   return (
-    <div className={style.listMusicYoutubeIframe}>
+    <div className={style.listMusicYoutubeIframe} 
+    style={{background:colorControlerPlayer ? `${formatColorRgb(colorControlerPlayer)}`:'white'}}
+    >
       {listVideoRecomended &&
         listVideoRecomended.filter((videoRecomended) => (videoRecomended.type == 'video')).map((videoRecomended) => (
           <ItemYoutube key={videoRecomended.video.videoId + '$%&#'}

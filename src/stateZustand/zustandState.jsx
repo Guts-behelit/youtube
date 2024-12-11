@@ -15,6 +15,7 @@ export const useStore = create((set)=>({
         thumbnail:[{url:"https://i.ytimg.com/vi/kBkqVyTQa1w/hqdefault.jpg"},{url:""}],
         title:'zunztand',
         lengthText:'5.56'},
-    updateObjectVideoActually : (newObjectVideo)=> set({objectVideoActually:newObjectVideo})
-
+    updateObjectVideoActually : (newObjectVideo)=> set({objectVideoActually:newObjectVideo}),
+    colorControlerPlayer:[],
+    updateColorControlerPlayer : (newColor)=> set({colorControlerPlayer:newColor}),
 }));

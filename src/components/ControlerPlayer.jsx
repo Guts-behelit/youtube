@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect ,useState} from "react"
 import "../style/controlerPlayer.css"
 import { BotonShowMusicPlayer } from "./PlaySong"
 import { MusicContext } from "../context/MusicContext"
@@ -8,11 +8,17 @@ import { useStore } from "../stateZustand/zustandState"
 
 export default function ControlerPlayer() {
   const { isMoved, setIsMoved } = useContext(MusicContext)
+  const {colorControlerPlayer} = useStore()
+  const formatColorRgb = (array) =>{
+   // return `linear-gradient(180deg, rgba(${array[0]},${array[1]},${array[2]},1) 20%, rgba(24,24,23,1) 100%)`
+  return `rgb(${array[0]},${array[1]},${array[2]})`
+  }
   return (
     <div className="controler-player-container"
     onClick={()=>{
       setIsMoved(!isMoved)
     }}
+    style={{background:colorControlerPlayer ? `${formatColorRgb(colorControlerPlayer)}`:'white'}}
     >
 
       <BarProgressYoutube />
@@ -36,12 +42,36 @@ export default function ControlerPlayer() {
   )
 }
 function SongActually(){
-  const {objectVideoActually} = useStore((state)=> state);
+  const {objectVideoActually,updateColorControlerPlayer} = useStore((state)=> state);
+  
   const { 
      thumbnail: [{ url: smallThumbnail }],
       title,
         } = objectVideoActually;
 
+
+   useEffect(()=>{
+    const getImageColor = async (imageUrl) => {
+      try {
+        const response = await fetch(`https://api-youtube-player.onrender.com/color-image?url=${imageUrl}`);
+        if (!response.ok) {
+          throw new Error('Error al obtener el color de la imagen');
+        }
+    
+        const data = await response.json();
+        console.log('Color dominante:', data);
+        updateColorControlerPlayer(data.pallete[0])
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+    
+    // Llama a la función con la URL de la imagen
+    getImageColor(smallThumbnail);
+    
+   },[smallThumbnail])
+
+ 
   return(
     <div className="song-actually-container">
           <div className='list-item-container'
@@ -49,7 +79,8 @@ function SongActually(){
             console.log(objectVideoActually)
           }}
           >
-            <img src={smallThumbnail} alt={title} />
+            <img  src={smallThumbnail} alt={title}
+             />
             <div className="text-music-container">
             <span
             className={title.length > 15 ? 'textAnimation':''}

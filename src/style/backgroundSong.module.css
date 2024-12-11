@@ -122,11 +122,11 @@
   ::-webkit-scrollbar{
     width: 5px;
 }
-::-webkit-scrollbar-track{
+.backgroundSongContainer ::-webkit-scrollbar-track{
     background-color: rgb(255, 255, 255);
 }
-::-webkit-scrollbar-thumb{
-    background-color: crimson;
+.backgroundSongContainer ::-webkit-scrollbar-thumb{
+    background-color: rgb(83, 83, 83);
 }
   @media (max-width:425px) {
     .backgroundSongContainer {

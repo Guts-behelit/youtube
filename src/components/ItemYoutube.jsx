@@ -3,7 +3,7 @@ import style from '../style/itemYoutube.module.css'
 export function ItemYoutube({ videoItem }) {
     const { updateIdActualVideoIframe,updateObjectVideoActually } = useStore((state) => state)
     const { videoId, thumbnails:[,{url:mediumThumbnail}], title, lengthSeconds } = videoItem.video
-  console.log(videoItem)
+  
     const handleMusic = () => {
       updateIdActualVideoIframe(videoId)
       //updateObjectVideoActually(videoItem)
