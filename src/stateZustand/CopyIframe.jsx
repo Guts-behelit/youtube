@@ -86,7 +86,9 @@ export const CopyIframe = () => {
       <div className={style.youtubePlayerIframeContainer}>
         {/* Aqui va el iframe de youtube */}
         <div className={style.iframeContainer}>
-          <div id={style.youtubeIframe} ref={playerRef} ></div>
+          <div id={style.youtubeIframe} ref={playerRef}
+          style={{width:'100%',height:'100%'}}
+          ></div>
         </div>
         <ListItemYoutube/>
     {/*aqui va el componente listItem*/}

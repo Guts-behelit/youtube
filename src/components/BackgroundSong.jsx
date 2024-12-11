@@ -17,7 +17,7 @@ export default function BackgroundSong() {
       </div>
       
       <div className={style.prueba2}>
-      <SwiperSliderMusic videoRecomendedId={'oBofuVYDoG4'}/>
+     {/* <SwiperSliderMusic videoRecomendedId={'oBofuVYDoG4'}/>*/}
         <div className={style.resultVideo}>
         {listObjectVideoSearch && listObjectVideoSearch.map((e , index) => (
           <ItemResultSearchYoutube thumbnail={e.thumbnail} key={e.id || index + '#%(8'} title={e.title} idItem={e.videoId} />

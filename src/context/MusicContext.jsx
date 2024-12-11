@@ -16,7 +16,7 @@ export default function MusicContextProvider({ children }) {
     const [wavesurferMedia, setWavesurferMedia] = useState("");
     const [urlSongs, setUrlSongs] = useState(urlsMusic)
     const [currentTime, setCurrentTime] = useState('');
-    const [isMoved, setIsMoved] = useState(false);
+    const [isMoved, setIsMoved] = useState(true);
     const [player, setPlayer] = useState(null); // Estado para el reproductor
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
