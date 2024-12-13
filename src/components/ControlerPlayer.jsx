@@ -1,4 +1,4 @@
-import { useContext, useEffect ,useState} from "react"
+import { useContext, useEffect, useState } from "react"
 import "../style/controlerPlayer.css"
 import { BotonShowMusicPlayer } from "./PlaySong"
 import { MusicContext } from "../context/MusicContext"
@@ -8,32 +8,37 @@ import { useStore } from "../stateZustand/zustandState"
 
 export default function ControlerPlayer() {
   const { isMoved, setIsMoved } = useContext(MusicContext)
-  const {colorControlerPlayer} = useStore()
-  const formatColorRgb = (array) =>{
-   // return `linear-gradient(180deg, rgba(${array[0]},${array[1]},${array[2]},1) 20%, rgba(24,24,23,1) 100%)`
-  return `rgb(${array[0]},${array[1]},${array[2]})`
+  //const {colorControlerPlayer} = useStore()
+  const formatColorRgb = (array) => {
+    const rgbDark = (rgb, porcentaje) => {
+      return rgb.map(canal => Math.max(0, Math.min(255, Math.round(canal * (1 - porcentaje)))));
+    }
+    const colorDark = rgbDark(array, 0.2);
+    console.log(`linear-gradient(0deg, rgba(${colorDark[0]},${colorDark[1]},${colorDark[2]},1) 20%, rgba(24,24,23,1) 100%)`)
+    return `linear-gradient(0deg, rgba(${colorDark[0]},${colorDark[1]},${colorDark[2]},1) 20%, rgba(24,24,23,1) 100%)`
+
+    //return `rgb(${colorDark[0]},${colorDark[1]},${colorDark[2]})`
   }
   return (
     <div className="controler-player-container"
-    onClick={()=>{
-      setIsMoved(!isMoved)
-    }}
-    style={{background:colorControlerPlayer ? `${formatColorRgb(colorControlerPlayer)}`:'white'}}
+      onClick={() => {
+        setIsMoved(!isMoved)
+      }}
     >
 
       <BarProgressYoutube />
       <div className="controler-player">
-      {/*<div className="btns-controler-secundary">
+        {/*<div className="btns-controler-secundary">
           <BotonVolumeYoutube />
           <BotonShowMusicPlayer />
         </div> */}
-      <SongActually/>
+        <SongActually />
         <div className="btns-controler-primary">
           <BotonBackYoutube />
           <BotonPlayYoutube />
           <BotonNextYoutube />
         </div>
-        
+
 
 
       </div>
@@ -41,23 +46,23 @@ export default function ControlerPlayer() {
     </div>
   )
 }
-function SongActually(){
-  const {objectVideoActually,updateColorControlerPlayer} = useStore((state)=> state);
-  
-  const { 
-     thumbnail: [{ url: smallThumbnail }],
-      title,
-        } = objectVideoActually;
+function SongActually() {
+  const { objectVideoActually, updateColorControlerPlayer } = useStore((state) => state);
+
+  const {
+    thumbnail: [{ url: smallThumbnail }],
+    title,
+  } = objectVideoActually;
 
 
-   useEffect(()=>{
+  useEffect(() => {
     const getImageColor = async (imageUrl) => {
       try {
         const response = await fetch(`https://api-youtube-player.onrender.com/color-image?url=${imageUrl}`);
         if (!response.ok) {
           throw new Error('Error al obtener el color de la imagen');
         }
-    
+
         const data = await response.json();
         console.log('Color dominante:', data);
         updateColorControlerPlayer(data.pallete[0])
@@ -65,36 +70,45 @@ function SongActually(){
         console.error('Error:', error);
       }
     };
-    
+
     // Llama a la función con la URL de la imagen
     getImageColor(smallThumbnail);
-    
-   },[smallThumbnail])
 
- 
-  return(
+  }, [smallThumbnail]);
+
+  const filterText = (texto) => {
+    return texto.replace(/[\(\[][^\)\]]*[\)\]]/g,'').trim();
+  }
+
+  return (
     <div className="song-actually-container">
-          <div className='list-item-container'
-          onClick={()=>{
-            console.log(objectVideoActually)
-          }}
-          >
-            <img  src={smallThumbnail} alt={title}
-             />
-            <div className="text-music-container">
-            <span
-            className={title.length > 15 ? 'textAnimation':''}
-            >{title}</span>
-            </div>
-            
+      <div className='list-item-container'
+        onClick={() => {
+          console.log(objectVideoActually)
+        }}
+      >
+        <img src={smallThumbnail} alt={title}
+        />
+        <div className="text-music-container">
+          <div className="titleSong">
+            <span  className={`${title}`.length > 15 ? 'textAnimation':''}>{filterText(title)}</span>
+            <span  className={`${title}`.length > 15 ? 'textAnimation titleShow': ''}>
+              {title.length > 18 ? filterText(title):title} </span>
+              <span className={`${title}`.length > 15 ? 'textAnimation titleShow' : ''}>
+                {title.length > 18 ? filterText(title) : title} </span>
           </div>
         </div>
+
+
+
+      </div>
+    </div>
   )
 }
 
 export function BarProgressYoutube() {
   const { progress } = useContext(MusicContext);
-  const {referenceIframe} = useStore((state)=> state);
+  const { referenceIframe } = useStore((state) => state);
   const handleProgressClick = (e) => {
     e.stopPropagation();
     const progressBar = e.target;

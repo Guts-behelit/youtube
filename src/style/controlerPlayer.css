@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     z-index: 2;
+    background: linear-gradient(0deg, rgba(10,10,10,1) 20%, rgba(24,24,23,1) 100%);
 }
 
 .bar-progress-youtube-container {
@@ -68,7 +69,7 @@
     
 }
 
-.song-actually-container>.list-item-container {
+.song-actually-container > .list-item-container {
     min-width:100px;
     max-width: 400px;
     height: 60px;
@@ -89,7 +90,7 @@
     border-radius: 10px;
 }
 
-.list-item-container>.text-music-container {
+.list-item-container > .text-music-container {
     width: 70%;
     height: 100%;
     padding: 0px 10px;
@@ -106,7 +107,9 @@
     background-color: transparent;
 
 }
-
+.titleShow{
+    display: none;
+}
 .btns-controler-secundary {
     width: 200px;
     padding: 0;
@@ -166,13 +169,15 @@
         border-radius: 10px 10px 10px 10px;
     }
     .list-item-container > .text-music-container{
-        width: 110px;
+        width: 120px;
         height: 100%;
         overflow: hidden;
         background-color: transparent;
         box-sizing: border-box;
         display: flex;
         align-items: center;
+        overflow: hidden;
+        white-space: nowrap;
     }
     @keyframes moveText {
         0% {
@@ -182,27 +187,30 @@
           transform: translateX(-100%); /* Desplaza a la izquierda */
         }
       }
-    .text-music-container > span {
-        width:auto ;
-        height: 50%;
-        margin: 0;
-        padding: 0px 5px;
-        font-size: 1rem;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-weight: 700;
-        color: rgb(54, 54, 54);
-        color: white;
-        text-align: center;
-       text-overflow: clip;
+      .titleSong {
+        height: 100%;
+        padding: 0 1rem;
+        display: inline-flex; /* Asegura que los spans se ubiquen en una fila */
+        align-items: center;
         background-color: transparent;
-        display: inline-block;
-    white-space: nowrap;
-    box-sizing: border-box;
+      }
+    .titleSong > span {
+        width: auto;
+        padding: 0 10px;
+        background-color: transparent;
+        font-size: 0.9rem;
+
     
     }
     .textAnimation{
-        animation: moveText 8s linear infinite alternate;
+        animation: moveText 5s linear infinite ;
     }
+    .textAnimation span {
+        padding-right: 2rem; /* Espaciado entre textos */
+      }
+      .titleShow{
+        display: block;
+    } 
     .volume-youtube-container{
         display: none;
     }
