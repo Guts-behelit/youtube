@@ -6,7 +6,7 @@ import { useStore } from "../stateZustand/zustandState";
 import { ItemResultSearchYoutube } from "./ItemResultSearchYoutube";
 import SwiperSliderMusic from "./slider/SwiperSliderMusic";
 import MagnifyingGlass  from '/iconSvg/magnifying-glass.svg'
-
+import { decode } from "he";
 export default function BackgroundSong() {
   const { listObjectVideoSearch } = useStore((state)=> state)
 
@@ -79,7 +79,7 @@ function InputSearchYoutube() {
           listFecthYoutube.push({
             videoId,
             thumbnail,
-            title,
+            title:decode(title),
             description,
             videoUrl
           })

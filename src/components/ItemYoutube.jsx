@@ -1,12 +1,20 @@
 import { useStore } from "../stateZustand/zustandState"
 import style from '../style/itemYoutube.module.css'
+import { decode } from "he"
+
 export function ItemYoutube({ videoItem }) {
     const { updateIdActualVideoIframe,updateObjectVideoActually } = useStore((state) => state)
     const { videoId, thumbnails:[,{url:mediumThumbnail}], title, lengthSeconds } = videoItem.video
   
     const handleMusic = () => {
-      updateIdActualVideoIframe(videoId)
-      //updateObjectVideoActually(videoItem)
+      updateIdActualVideoIframe(videoId);
+
+      let songReproducer = {videoId,
+        thumbnail:[{url:mediumThumbnail},{url:""}],
+        title:decode(title),
+        lengthText:lengthSeconds}
+
+      updateObjectVideoActually(songReproducer)
   }
   const  formatTime = (seconds) => {
     const hours = Math.floor(seconds / 3600); // Calcula las horas

@@ -50,7 +50,7 @@ function SongActually() {
   const { objectVideoActually, updateColorControlerPlayer } = useStore((state) => state);
 
   const {
-    thumbnail: [{ url: smallThumbnail }],
+    thumbnail: [{ url: smallThumbnail },],
     title,
   } = objectVideoActually;
 

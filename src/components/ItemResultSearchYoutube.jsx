@@ -1,6 +1,6 @@
 import { useStore } from "../stateZustand/zustandState";
 import style from '../style/itemResultSearchYoutube.module.css'
-
+import { decode } from "he";
 export function ItemResultSearchYoutube({ thumbnail, title, idItem  }) {
  
     const {updateIdActualVideoIframe,updateObjectVideoActually} = useStore((state)=> state)
