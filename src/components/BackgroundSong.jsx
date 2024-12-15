@@ -59,7 +59,7 @@ function InputSearchYoutube() {
   }, []);
 
   const getInfoApiYoutube = () => {
-    const apiKey = 'AIzaSyBmcw5S5OlPzyBe-CaQfAgrt0dHYpSTNyE'
+    const apiKey = import.meta.env.VITE_API_KEY_YOUTUBE_SEARCH;
     // Reemplaza con tu clave de API válida
     const query = `${inputText}`;        // Palabra clave a buscar
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${query}&key=${apiKey}&maxResults=20`;
