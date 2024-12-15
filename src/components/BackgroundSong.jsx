@@ -64,7 +64,7 @@ function InputSearchYoutube() {
   // const query = `${inputText}`;        // Palabra clave a buscar
   //const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${query}&key=${apiKey}&maxResults=20`;
 
-    fetch(`/api/handler?q=${inputText}`)
+    fetch(`../../api/handler?query=${inputText}`)
       .then(response => response.json())
       .then(data => {
         // Procesar y mostrar los resultados
