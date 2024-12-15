@@ -1,8 +1,62 @@
-# Ignorar node_modules
+# Node.js dependencies
 node_modules/
 
-# Otras configuraciones que puedas necesitar
+# Logs
+logs/
 *.log
-*.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*    # Ignora cualquier archivo de entorno adicional como .env.local, .env.production, etc.
+
+# Build outputs
+dist/
+out/
+build/
+
+# Vite-specific
+.vite/
+*.cache
+*.temp
+
+# Editor/IDE-specific
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# OS-generated files
 .DS_Store
+Thumbs.db
+*.stackdump
+
+# Ignore compiled files
+*.js.map
+*.css.map
+
+# Ignore sensitive keys and certificates
+*.pem
+*.key
+*.crt
+
+# Ignore temporary files
+*.tmp
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore test coverage output
+coverage/
+
+# Ignore any local tooling or debugging files
+*.local
+*.dev
+*.debug
+
 
