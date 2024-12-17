@@ -7,7 +7,7 @@ const manifestForPlugin ={
   registerType:'prompt',
   includeAssets:['favicon.ico','apple-touch-icon.png','masked-icon.png'],
   manifest:{
-    name:'youVideo app',
+    name:'youVideo',
     short_name:'youVideo',
     description:'App that search and listen music',
     icons:[
@@ -19,7 +19,7 @@ const manifestForPlugin ={
       {src:'/imgpwa/android-chrome-384x384.png',sizes:'384x384',type:'image/png',purpose:'any masktable'}
     ],
     theme_color:'#FFFFFF',
-    background_color:'#FFFFFF',
+    background_color:'#000000',
     display:'standalone',
     scope:'/',
     start_url:'/',
