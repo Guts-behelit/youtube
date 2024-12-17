@@ -18,7 +18,7 @@ const manifestForPlugin ={
       {src:'/imgpwa/android-chrome-256x256.png',sizes:'256x256',type:'image/png',purpose:'icon'},
       {src:'/imgpwa/android-chrome-384x384.png',sizes:'384x384',type:'image/png',purpose:'any masktable'}
     ],
-    theme_color:'#FFFFFF',
+    theme_color:'#000000',
     background_color:'#000000',
     display:'standalone',
     scope:'/',
