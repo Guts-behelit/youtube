@@ -4,7 +4,7 @@ import { decode } from "he"
 
 export function ItemYoutube({ videoItem }) {
     const { updateIdActualVideoIframe,updateObjectVideoActually } = useStore((state) => state)
-    const { videoId, thumbnails:[,{url:mediumThumbnail}], title, lengthSeconds } = videoItem.video
+    const { videoId, thumbnail:[,{url:mediumThumbnail}], title } = videoItem
   
     const handleMusic = () => {
       updateIdActualVideoIframe(videoId);
@@ -12,7 +12,7 @@ export function ItemYoutube({ videoItem }) {
       let songReproducer = {videoId,
         thumbnail:[{url:mediumThumbnail},{url:""}],
         title:decode(title),
-        lengthText:lengthSeconds}
+        lengthText:''}
 
       updateObjectVideoActually(songReproducer)
   }
@@ -36,7 +36,7 @@ export function ItemYoutube({ videoItem }) {
       <div className={style.listItemContainer}
         onClick={handleMusic} >
         <img className={style.imageItem} src={mediumThumbnail} />
-        <span className={style.timeVideo}>{formatTime(lengthSeconds)}</span>
+        <span className={style.timeVideo}>{'formatTime(lengthSeconds)'}</span>
         <div className={style.titleContainer} >
        
             <h3 className={style.descriptionTitle}>{title}</h3>

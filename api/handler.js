@@ -3,6 +3,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   // Tu clave privada configurada en Vercel
   const { query }= req.query
+ 
   try {
     const apiKey = process.env.API_KEY_YOUTUBE_SEARCH;
     // Reemplaza con tu clave de API válida
