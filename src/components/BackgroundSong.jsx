@@ -60,7 +60,7 @@ function InputSearchYoutube() {
 
   const getInfoApiYoutube = () => {
 
-    fetch(`http://localhost:8080/search-videos?search=${inputText}`)
+    fetch(`https://api-youtube-player.onrender.com/search-videos?search=${inputText}`)
       .then(response => response.json())
       .then(data => {
         // Procesar y mostrar los resultados

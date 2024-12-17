@@ -16,7 +16,7 @@ export function ListItemYoutube() {
     const fetchData = async () => {
 
       try {
-        const response = await fetch(`http://localhost:8080/videos-related?id=${idActualVideoIframe}`);
+        const response = await fetch(`https://api-youtube-player.onrender.com/videos-related?id=${idActualVideoIframe}`);
         const result = await response.json();
         console.log('resulta.data: ',result.data);
         setListVideoRecomeded(result.data)
