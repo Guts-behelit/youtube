@@ -13,7 +13,7 @@ const manifestForPlugin ={
     icons:[
       {src:'/imgpwa/android-chrome-192.png',sizes:'192x192',type:'image/png'},
       {src:'/imgpwa/512.png',sizes:'512x512',type:'image/png',purpose:'favicon'},
-      {src:'/imgpwa/apple-touch-icon.png',sizes:'180x180',type:'image/png',purpose:'apple touch icon'},
+      {src:'/imgpwa/180.png',sizes:'180x180',type:'image/png',purpose:'apple touch icon'},
       {src:'/imgpwa/144.png',sizes:'144x144',type:'image/png',purpose:'any'},
       {src:'/imgpwa/256.png',sizes:'256x256',type:'image/png',purpose:'icon'},
       {src:'/imgpwa/384.png',sizes:'384x384',type:'image/png',purpose:'any masktable'}
