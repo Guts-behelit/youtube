@@ -11,7 +11,7 @@ const manifestForPlugin ={
     short_name:'youVideo',
     description:'App that search and listen music',
     icons:[
-      {src:'/imgpwa/android-chrome-192x192.png',sizes:'192x192',type:'image/png'},
+      {src:'/imgpwa/android-chrome-192.png',sizes:'192x192',type:'image/png'},
       {src:'/imgpwa/android-chrome-512x512.png',sizes:'512x512',type:'image/png',purpose:'favicon'},
       {src:'/imgpwa/apple-touch-icon.png',sizes:'180x180',type:'image/png',purpose:'apple touch icon'},
       {src:'/imgpwa/android-chrome-144x144.png',sizes:'144x144',type:'image/png',purpose:'any'},
